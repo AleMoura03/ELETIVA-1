@@ -26,8 +26,8 @@
         if ($_SERVER["REQUEST_METHOD"] == "POST") {
             $valor1 = $_POST["valor1"];
             $valor2 = $_POST["valor2"];
-            $soma = $valor1 * $valor2;
-            echo "<p>Soma: $soma </p>";
+            $multiplicar = $valor1 * $valor2;
+            echo "<p> Calculando: $valor1 * $valor2 = $multiplicar </p>";
         }
         ?>
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.6/dist/js/bootstrap.bundle.min.js"

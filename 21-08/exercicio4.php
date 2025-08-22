@@ -4,13 +4,13 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Exercício 2</title>
+    <title>Exercício 4</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
 </head>
 
 <body>
     <div class="container">
-        <h1>Exercício 2</h1>
+        <h1>Exercício 4</h1>
         <form method="post">
             <div class="mb-3">
                 <label for="valor1" class="form-label">Digite o 1º valor</label>
@@ -26,8 +26,14 @@
         if ($_SERVER["REQUEST_METHOD"] == "POST") {
             $valor1 = $_POST["valor1"];
             $valor2 = $_POST["valor2"];
-            $subtrair = $valor1 - $valor2;
-            echo "<p> Calculando: $valor1 * $valor2 = $subtrair </p>";
+
+            if ($valor2 == 0) {
+                echo "<p>O valor não pode ser igual ou menor que 0</p>";
+            }
+            else {
+                $divisao = $valor1 / $valor2;
+                echo "<p> Calculando: $valor1 / $valor2 = $divisao </p>";
+            }
         }
         ?>
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.6/dist/js/bootstrap.bundle.min.js"
