@@ -1,5 +1,5 @@
 <?php
-    include("cabecalho");
+    include("cabecalho.php");
 
     $i = 1;
     do {

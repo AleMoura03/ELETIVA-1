@@ -1,5 +1,5 @@
 <?php
-    include("cabecalho");
+    include("cabecalho.php");
 
     for($i=1; $i<=5; $i++){
         echo "<p>Número $i</p>";
