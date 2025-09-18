@@ -14,17 +14,21 @@
         <form method="post">
             <div class="mb-3">
                 <label for="valor1" class="form-label">Digite o raio do círculo</label>
-                <input type="number" id="valor1" name="valor1" class="form-control" required="">
+                <input type="number" id="valor1" name="valor1" class="form-control" required="" step="any">
             </div>
 
             <button type="submit" class="btn btn-primary">Calcular</button>
         </form>
         <?php
         if ($_SERVER["REQUEST_METHOD"] == "POST") {
-            $valor1 = $_POST["valor1"];
+            $valor1 = str_replace(',','.', $_POST["valor1"]);
+            if (is_numeric($valor1) && $valor1 > 0){
             $calculo = ($valor1 ** 2) * 3.14159;
             $calculoFormatado = number_format($calculo,2,",", ".");
-            echo "<p> A área de um círculo com raio $valor1 é: $calculoFormatado</p>";
+            echo "<p> A área de um círculo com raio $valor1 é: $calculoFormatado ²</p>";
+            } else {
+                echo "<p>Digite um valor válido para o raio do círculo</p>";
+            }
 
         }
         ?>

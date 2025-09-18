@@ -14,24 +14,27 @@
         <form method="post">
             <div class="mb-3">
                 <label for="valor1" class="form-label">Digite a Altura</label>
-                <input type="number" id="altura" name="altura" class="form-control" required="">
+                <input type="number" id="altura" name="altura" class="form-control" required="" step="any">
             </div>
 
             <div class="mb-3">
                 <label for="valor1" class="form-label">Digite a Largura</label>
-                <input type="number" id="largura" name="largura" class="form-control" required="">
+                <input type="number" id="largura" name="largura" class="form-control" required="" step="any">
             </div>
 
             <button type="submit" class="btn btn-primary">Calcular perímetro</button>
         </form>
         <?php
         if ($_SERVER["REQUEST_METHOD"] == "POST") {
-            $altura = $_POST["altura"];
-            $largura = $_POST["largura"];
+            $altura = str_replace(',','.', $_POST["altura"]);
+            $largura = str_replace(',','.', $_POST["largura"]);
+            if (is_numeric($altura) && is_numeric($largura) && $altura > 0 && $largura > 0){
             $perimetro = ($altura + $largura) * 2;
             $perimetroFormatada = number_format($perimetro, 2, ".", "");
-
             echo "<p> O perímetro do retângulo com largura $largura e altura $altura é: $perimetroFormatada </p>";
+            } else {
+                echo "<p>Digite valores válidos para largura e altura</p>";
+            }
 
         }
         ?>

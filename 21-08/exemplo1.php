@@ -14,22 +14,23 @@
         <form method="post" >
             <div class="mb-3">
                 <label for="valor1" class="form-label">Informe o primeiro valor</label>
-                <input type="number" id="valor1" name="valor1" class="form-control" required="">
+                <input type="number" id="valor1" name="valor1" class="form-control" required="" step="any">
             </div>
             <div class="mb-3">
                 <label for="valor2" class="form-label">Informe segundo valor</label>
-                <input type="number" id="valor2" name="valor2" class="form-control" required="">
+                <input type="number" id="valor2" name="valor2" class="form-control" required="" step="any">
             </div>
             <button type="submit" class="btn btn-primary">Enviar</button>
         </form>
 
         <?php
             if ($_SERVER["REQUEST_METHOD"] == "POST") {
-            $valor1 = $_POST["valor1"];
-            $valor2 = $_POST["valor2"];
+            $valor1 = str_replace(',', '.', $_POST["valor1"]);
+            $valor2 = str_replace(',', '.', $_POST["valor2"]);
             $soma = $valor1 + $valor2;
             echo "<p>Soma: $soma </p>";
-            }
+            
+        }
             // (menos -) (mais+) (vezes*) (exponenciação**) (divisão/) (divisão sem resto//) (apenas resto da divisão%)
         ?>
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.6/dist/js/bootstrap.bundle.min.js"

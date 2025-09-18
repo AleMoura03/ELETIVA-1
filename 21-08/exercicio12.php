@@ -14,11 +14,11 @@
         <form method="post">
             <div class="mb-3">
                 <label for="valor1" class="form-label">Informe o valor da base</label>
-                <input type="number" id="valor1" name="valor1" class="form-control" required="">
+                <input type="number" id="valor1" name="valor1" class="form-control" required="" step="any">
             </div>
             <div class="mb-3">
                 <label for="valor2" class="form-label">Informe o valor do expoente</label>
-                <input type="number" id="valor2" name="valor2" class="form-control" required="">
+                <input type="number" id="valor2" name="valor2" class="form-control" required="" step="any">
             </div>
             <button type="submit" class="btn btn-primary">Enviar</button>
         </form>

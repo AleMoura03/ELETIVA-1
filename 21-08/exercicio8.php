@@ -14,12 +14,12 @@
         <form method="post">
             <div class="mb-3">
                 <label for="valor1" class="form-label">Digite a Altura</label>
-                <input type="number" id="altura" name="altura" class="form-control" required="">
+                <input type="number" id="altura" name="altura" class="form-control" required="" step="any">
             </div>
 
             <div class="mb-3">
                 <label for="valor1" class="form-label">Digite a Largura</label>
-                <input type="number" id="largura" name="largura" class="form-control" required="">
+                <input type="number" id="largura" name="largura" class="form-control" required="" step="any">
             </div>
            
             <button type="submit" class="btn btn-primary">Calcular Área</button>
@@ -28,11 +28,13 @@
         if ($_SERVER["REQUEST_METHOD"] == "POST") {
             $altura = $_POST["altura"];
             $largura = $_POST["largura"];
+            if (is_numeric($altura) && is_numeric($largura) && $largura > 0 && $altura > 0) {
             $area = ($altura * $largura) / 2;
             $areaFormatada = number_format($area,2,".","");
-            
             echo "<p> A área do triângulo com largura $largura e altura $altura é: $areaFormatada ²</p>";
-
+            } else {
+                echo "<p>Digite um valor válido para peso e/ou altura</p>";
+            }
         }
         ?>
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.6/dist/js/bootstrap.bundle.min.js"

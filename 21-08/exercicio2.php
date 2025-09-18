@@ -14,11 +14,11 @@
         <form method="post">
             <div class="mb-3">
                 <label for="valor1" class="form-label">Digite o 1º valor</label>
-                <input type="number" id="valor1" name="valor1" class="form-control" required="">
+                <input type="number" id="valor1" name="valor1" class="form-control" required="" step="any">
             </div>
             <div class="mb-3">
                 <label for="valor2" class="form-label">Digite o 2º valor</label>
-                <input type="number" id="valor2" name="valor2" class="form-control" required="">
+                <input type="number" id="valor2" name="valor2" class="form-control" required="" step="any">
             </div>
             <button type="submit" class="btn btn-primary">Enviar</button>
         </form>
@@ -27,7 +27,7 @@
             $valor1 = $_POST["valor1"];
             $valor2 = $_POST["valor2"];
             $subtrair = $valor1 - $valor2;
-            echo "<p> Calculando: $valor1 * $valor2 = $subtrair </p>";
+            echo "<p> Calculando: $valor1 - $valor2 = $subtrair </p>";
         }
         ?>
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.6/dist/js/bootstrap.bundle.min.js"
