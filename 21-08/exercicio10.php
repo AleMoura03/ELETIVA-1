@@ -21,7 +21,7 @@
                 <label for="valor1" class="form-label">Digite a Largura</label>
                 <input type="number" id="largura" name="largura" class="form-control" required="">
             </div>
-           
+
             <button type="submit" class="btn btn-primary">Calcular perímetro</button>
         </form>
         <?php
