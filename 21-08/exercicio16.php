@@ -4,16 +4,16 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Exercício 13</title>
+    <title>Exercício 14</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
 </head>
 
 <body>
     <div class="container">
-        <h1>Exercício 13 - Conversor</h1>
+        <h1>Exercício 14 - Conversor</h1>
         <form method="post">
             <div class="mb-3">
-                <label for="valor1" class="form-label">Digite uma medida (em metros)</label>
+                <label for="valor1" class="form-label">Digite uma medida (em quilometros)</label>
                 <input type="number" id="valor1" name="valor1" class="form-control" required="" step="any">
             </div>
 
@@ -21,14 +21,14 @@
         </form>
         <?php
         if ($_SERVER["REQUEST_METHOD"] == "POST") {
-            $valor1 = str_replace(',','.', $_POST["valor1"]);
-            if(is_numeric($valor1) && $valor1 > 0) {
-            $calculo = $valor1 * 100;
-            $calculoFormatado = number_format($calculo, 2, ",", ".");
-            echo "<p> $valor1 metro(s) tem $calculoFormatado centímetro(s)</p>";
-        } else{
-            echo "<p>Digite um valor válido para a medida </p>";
-        }
+            $valor1 = str_replace(',', '.', $_POST["valor1"]);
+            if (is_numeric($valor1) && $valor1 > 0) {
+                $calculo = $valor1 * 100;
+                $calculoFormatado = number_format($calculo, 2, ",", ".");
+                echo "<p> $valor1 metro(s) tem $calculoFormatado centímetro(s)</p>";
+            } else {
+                echo "<p>Digite um valor válido para a medida </p>";
+            }
         }
         ?>
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.6/dist/js/bootstrap.bundle.min.js"

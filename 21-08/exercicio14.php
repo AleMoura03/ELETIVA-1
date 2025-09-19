@@ -21,11 +21,14 @@
         </form>
         <?php
         if ($_SERVER["REQUEST_METHOD"] == "POST") {
-            $valor1 = $_POST["valor1"];
-            $calculo = $valor1 * 0.621371;
+            $valor1 = str_replace(',','.', $_POST["valor1"]);
+            if(is_numeric($valor1) && $valor1 > 0) {
+            $calculo = $valor1 * 100;
             $calculoFormatado = number_format($calculo, 2, ",", ".");
-            echo "<p> $valor1 quilometro(s) tem $calculoFormatado milha(s)</p>";
-
+            echo "<p> $valor1 metro(s) tem $calculoFormatado centímetro(s)</p>";
+        } else{
+            echo "<p>Digite um valor válido para a medida </p>";
+        }
         }
         ?>
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.6/dist/js/bootstrap.bundle.min.js"
