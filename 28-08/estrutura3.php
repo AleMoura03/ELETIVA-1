@@ -1,18 +1,31 @@
 <?php
-
     include("cabecalho.php");
-    //1-Domingo ...
+?>
+  <form method="post">
+    <div class="mb-3">
+        <label for="valorA" class="form-label">Digite o valor A</label>
+        <input type="number" id="valorA" name="valorA" class="form-control" required="" step="any">
+    </div>
+    <div class="mb-3">
+        <label for="valorB" class="form-label">Digite o valor B</label>
+        <input type="number" id="valorB" name="valorB" class="form-control" required="" step="any">
+    </div>
+    <button type="submit" class="btn btn-primary">Enviar</button>
+  </form>
 
-    switch($diaSemana){
-        case 1:
-            echo "Hoje é domingo";
-            break;
-        case 2:
-            echo "Hoje é segunda";
-            break;
-        case 3:
-            echo "Hoje é terça";
-            break;
-        default:
-        echo "Hoje pode ser quarta, quinta, sexta ou sábado";
+  <?php
+  if($_SERVER['REQUEST_METHOD'] == 'POST'){
+    $valorA = $_POST['valorA'];
+    $valorB = $_POST['valorB'];
+    if ($valorA == $valorB){
+        echo "<p>Os valores são iguais. Valor $valorA</p>";
+    }elseif ($valorA > $valorB){
+        echo "<p>$valorA, $valorB</p>";
+    }else{
+        echo "<p>$valorB, $valorA</p>";
     }
+  }
+?>
+  <?php
+  include("rodape.php");
+  ?>
