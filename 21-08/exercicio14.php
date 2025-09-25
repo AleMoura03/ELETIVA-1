@@ -24,7 +24,7 @@
             $valor1 = str_replace(',','.', $_POST["valor1"]);
             if(is_numeric($valor1) && $valor1 > 0) {
             $calculo = $valor1 * 100;
-            $calculoFormatado = number_format($calculo, 2, ",", ".");
+            $calculoFormatado = number_format($calculo, 2, "", ".");
             echo "<p> $valor1 metro(s) tem $calculoFormatado centímetro(s)</p>";
         } else{
             echo "<p>Digite um valor válido para a medida </p>";
