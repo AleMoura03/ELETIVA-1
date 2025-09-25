@@ -18,7 +18,7 @@
 
     <div class="mb-3">
       <label for="tempo" class="form-label">Digite o tempo gasto (em horas)</label>
-      <input type="number" id="tempo" name="tempo" class="form-control" required step="any" min="0">
+      <input type="number" id="tempo" name="tempo" class="form-control" required min="0" step="any">
     </div>
 
     <button type="submit" class="btn btn-primary">Calcular</button>
