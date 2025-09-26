@@ -28,7 +28,11 @@
                             <li><a class="dropdown-item" href="estrutura3.php">Estrutura 3</a></li>
                             <li><a class="dropdown-item" href="estrutura4.php">Estrutura 4</a></li>
                             <li><a class="dropdown-item" href="estrutura5.php">Estrutura 5</a></li>
-        
+                            <li><a class="dropdown-item" href="estrutura6.php">Estrutura 6</a></li>
+                            <li><a class="dropdown-item" href="estrutura7.php">Estrutura 7</a></li>
+                            <li><a class="dropdown-item" href="estrutura8.php">Estrutura 8</a></li>
+                            <li><a class="dropdown-item" href="estrutura9.php">Estrutura 9</a></li>
+                            <li><a class="dropdown-item" href="estrutura10.php">Estrutura 10</a></li>
                         </ul>
                     </li>
 
@@ -37,11 +41,9 @@
                             Estruturas de Repetição
                         </a>
                         <ul class="dropdown-menu" aria-labelledby="dropdown2">
-                    <li><a class="dropdown-item" href="estrutura6.php">Estrutura 6</a></li>
-                            <li><a class="dropdown-item" href="estrutura7.php">Estrutura 7</a></li>
-                            <li><a class="dropdown-item" href="estrutura8.php">Estrutura 8</a></li>
-                            <li><a class="dropdown-item" href="estrutura9.php">Estrutura 9</a></li>
-                            <li><a class="dropdown-item" href="estrutura10.php">Estrutura 10</a></li>
+                            <li><a class="dropdown-item" href="#">while</a></li>
+                            <li><a class="dropdown-item" href="#">do-while</a></li>
+                            <li><a class="dropdown-item" href="#">for</a></li>
                         </ul>
                     </li>
                 </ul>
