@@ -4,14 +4,14 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Aula 28-08</title>
+    <title>Lista 3</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
 </head>
 
 <body>
-    <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
-        <div class="container">
-            <a class="navbar-brand" href="#">Aula 28-08</a>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-primary sticky-top">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="#">Lista 3</a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Alternar navegação">
                 <span class="navbar-toggler-icon"></span>
             </button>
@@ -20,32 +20,19 @@
 
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" href="#" id="dropdown1" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                            Estruturas Condicionais
+                            Exercícios
                         </a>
                         <ul class="dropdown-menu" aria-labelledby="dropdown1">
-                            <li><a class="dropdown-item" href="estrutura1.php">Estrutura 1</a></li>
-                            <li><a class="dropdown-item" href="estrutura2.php">Estrutura 2</a></li>
-                            <li><a class="dropdown-item" href="estrutura3.php">Estrutura 3</a></li>
-                            <li><a class="dropdown-item" href="estrutura4.php">Estrutura 4</a></li>
-                            <li><a class="dropdown-item" href="estrutura5.php">Estrutura 5</a></li>
-                            <li><a class="dropdown-item" href="estrutura6.php">Estrutura 6</a></li>
-                            <li><a class="dropdown-item" href="estrutura7.php">Estrutura 7</a></li>
-                            <li><a class="dropdown-item" href="estrutura8.php">Estrutura 8</a></li>
-                            <li><a class="dropdown-item" href="estrutura9.php">Estrutura 9</a></li>
-                            <li><a class="dropdown-item" href="estrutura10.php">Estrutura 10</a></li>
+                            <li><a class="dropdown-item" href="exercicio1.php">Exercício 1</a></li>
+                            <li><a class="dropdown-item" href="exercicio2.php">Exercício 2</a></li>
+                            <li><a class="dropdown-item" href="exercicio3.php">Exercício 3</a></li>
+                            <li><a class="dropdown-item" href="exercicio4.php">Exercício 4</a></li>
+                            <li><a class="dropdown-item" href="exercicio5.php">Exercício 5</a></li>
+                            <li><a class="dropdown-item" href="exercicio6.php">Exercício 6</a></li>
                         </ul>
                     </li>
 
-                    <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="#" id="dropdown2" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                            Estruturas de Repetição
-                        </a>
-                        <ul class="dropdown-menu" aria-labelledby="dropdown2">
-                            <li><a class="dropdown-item" href="#">while</a></li>
-                            <li><a class="dropdown-item" href="#">do-while</a></li>
-                            <li><a class="dropdown-item" href="#">for</a></li>
-                        </ul>
-                    </li>
+                   
                 </ul>
             </div>
         </div>
