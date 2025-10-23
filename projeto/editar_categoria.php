@@ -1,24 +1,25 @@
 <?php
 require("cabecalho.php");
 require("conexao.php");
-if($SERVER['REQUEST_METHOD'] == "GET"){
-    try{
+if ($_SERVER['REQUEST_METHOD'] == "GET") {
+    try {
         $stmt = $pdo->prepare("SELECT * from categoria WHERE id = ?");
         $stmt->execute([$_GET['id']]);
         $categoria = $stmt->fetch(PDO::FETCH_ASSOC);
-    } catch(Exception $e){
-        echo "Erro ao consultar categoria: ".$e->getMessage();
+    } catch (Exception $e) {
+        echo "Erro ao consultar categoria : " . $e->getMessage();
     }
 }
 if ($_SERVER['REQUEST_METHOD'] == "POST") {
     $nome = $_POST['nome'];
+    $id = $_POST['id'];
     try {
         $stmt =
-            $pdo->prepare("INSERT INTO categoria (nome) VALUES (?)");
-        if ($stmt->execute([$nome])) {
-            header('location: categorias.php?cadastro=true');
+            $pdo->prepare("UPDATE categoria set nome = ? WHERE id = ?");
+        if ($stmt->execute([$nome, $id])) {
+            header('location: categorias.php?editar=true');
         } else {
-            header('location: categorias.php?cadastro=false');
+            header('location: categorias.php?editar=false');
         }
     } catch (\Exception $e) {
         echo "Erro: " . $e->getMessage();
@@ -26,14 +27,15 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
 }
 ?>
 
-    <h1>Nova Categoria</h1>
-    <form method="post">
-        <div class="mb-3">
-            <label for="nome" class="form-label">Informe o nome da categoria:</label>
-            <input type="text" id="nome" name="nome" class="form-control" required="">
-        </div>
-        <button type="submit" class="btn btn-primary">Enviar</button>
-    </form>
+<h1>Editar Categoria</h1>
+<form method="post">
+    <input type="hidden" name="id" value ="<?= $$_categoria["id"] ?>;">
+    <div class="mb-3">
+        <label for="nome" class="form-label">Informe o nome da categoria:</label>
+        <input value="<?= $_categoria['nome'] ?>" id="nome" name="nome" class="form-control" required="">
+    </div>
+    <button type="submit" class="btn btn-primary">Enviar</button>
+</form>
 
 <?php
 require("rodape.php");
