@@ -11,15 +11,14 @@ if ($_SERVER['REQUEST_METHOD'] == "GET") {
     }
 }
 if ($_SERVER['REQUEST_METHOD'] == "POST") {
-    $nome = $_POST['nome'];
     $id = $_POST['id'];
     try {
         $stmt =
-            $pdo->prepare("UPDATE categoria set nome = ? WHERE id = ?");
-        if ($stmt->execute([$nome, $id])) {
-            header('location: categorias.php?editar=true');
+            $pdo->prepare("DELETE FROM categoria WHERE id = ?");
+        if ($stmt->execute([$id])) {
+            header('location: categorias.php?excluir=true');
         } else {
-            header('location: categorias.php?editar=false');
+            header('location: categorias.php?excluir=false');
         }
     } catch (\Exception $e) {
         echo "Erro: " . $e->getMessage();
@@ -27,14 +26,18 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
 }
 ?>
 
-<h1>Editar Categoria</h1>
+<h1>Consultar Categoria</h1>
 <form method="post">
     <input type="hidden" name="id" value="<?= $categoria["id"] ?>;">
     <div class="mb-3">
         <label for="nome" class="form-label">Informe o nome da categoria:</label>
-        <input value="<?= $categoria['nome'] ?>" id="nome" name="nome" class="form-control" required="">
+        <input disabled value="<?= $categoria['nome'] ?>" id="nome" name="nome" class="form-control" required="">
     </div>
-    <button type="submit" class="btn btn-primary">Enviar</button>
+    <p>Deseja excluir esse registro ?</p>
+    <button type="submit" class="btn btn-danger">Excluir</button>
+    <button onclick="history.back()"; type="button" class="btn bnt-secundary">
+        Voltar
+    </button>
 </form>
 
 <?php
