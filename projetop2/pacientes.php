@@ -9,7 +9,6 @@ try {
   echo "<p class='text-danger'>Erro ao consultar: " . $e->getMessage() . "</p>";
 }
 
-// mensagens de feedback
 if (isset($_GET['cadastro']) && $_GET['cadastro']) {
   echo "<p class='text-success'>Cadastro realizado!</p>";
 } elseif (isset($_GET['cadastro'])) {
