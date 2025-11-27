@@ -35,20 +35,22 @@ if (isset($_GET['excluir']) && $_GET['excluir']) {
 <table class="table table-hover table-striped">
   <thead>
     <tr>
-        <th>ID</th>
-        <th>Nome</th>
-        <th>Telefone</th>
-        <th>Data Nasc.</th>
-        <th class="no-print">Ações</th>
+      <th>ID</th>
+      <th>Nome</th>
+      <th>Telefone</th>
+      <th>Data Nasc.</th>
+      <th class="no-print">Ações</th>
     </tr>
-</thead>
+  </thead>
 
   <tbody>
     <?php foreach ($pacientes as $p): ?>
       <tr>
         <td><?= $p['id'] ?></td>
-        <td><?= $p['nome'] ?></td>
-        <td><?= $p['telefone'] ?></td>
+        <td><?= htmlspecialchars($p['nome']) ?></td>
+        <td><?= htmlspecialchars($p['telefone']) ?></td>
+        <td><?= !empty($p['data_nascimento']) ? date('d/m/Y', strtotime($p['data_nascimento'])) : '-' ?></td>
+
         <td class="d-flex gap-2">
           <a href="editar_paciente.php?id=<?= $p['id'] ?>" class="btn btn-warning btn-sm">Editar</a>
           <a href="consultar_paciente.php?id=<?= $p['id'] ?>" class="btn btn-info btn-sm">Consultar</a>
