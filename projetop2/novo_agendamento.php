@@ -68,7 +68,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['action']) && $_POST['
         $errors[] = "Horário inválido.";
     }
 
-    // validar disponibilidade (não pode haver agendamento para mesmo médico+data+hora)
     if (empty($errors)) {
         $date_str = $data;
         $datetime_str = $data . ' ' . $hora . ':00'; // YYYY-MM-DD HH:MM:00
