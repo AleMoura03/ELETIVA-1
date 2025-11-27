@@ -52,7 +52,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['action']) && $_POST['
     if (!$hora)
         $errors[] = "Selecione um horário.";
 
-    // validar data futura (opção 2 escolhida)
+   
     $today = new DateTime('today');
     try {
         $dt = new DateTime($data);
