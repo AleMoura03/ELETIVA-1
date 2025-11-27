@@ -63,7 +63,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['action']) && $_POST['
         $errors[] = "Escolha uma data futura.";
     }
 
-    // validar horário pertence ao conjunto
+
     if (empty($errors) && !in_array($hora, $hours)) {
         $errors[] = "Horário inválido.";
     }
