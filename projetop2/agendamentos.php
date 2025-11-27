@@ -23,7 +23,6 @@ try {
     exit;
 }
 
-// mensagens
 if (isset($_GET['cadastro']))
     echo $_GET['cadastro'] == 'true' ? "<p class='text-success'>Agendamento realizado!</p>" : "<p class='text-danger'>Erro ao cadastrar!</p>";
 if (isset($_GET['editar']))
