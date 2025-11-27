@@ -24,7 +24,6 @@ if (isset($_GET['excluir'])) {
 ?>
 
 <h2>Horários Agendados</h2>
-<a class="btn btn-success mb-3" href="novo_horario.php">Novo Agendamento</a>
 
 <table class="table table-bordered">
   <tr>
@@ -41,9 +40,6 @@ if (isset($_GET['excluir'])) {
       <td><?= $d['paciente'] ?></td>
       <td><?= $d['medico'] ?></td>
       <td><?= date("d/m/Y H:i", strtotime($d['data_atendimento'])) ?></td>
-      <td>
-        <a href="editar_horario.php?id=<?= $d['id'] ?>" class="btn btn-warning btn-sm">Editar</a>
-        <a href="consultar_horario.php?id=<?= $d['id'] ?>" class="btn btn-info btn-sm">Consultar</a>
       </td>
     </tr>
   <?php endforeach; ?>
