@@ -8,7 +8,6 @@ if (!$id) {
     exit;
 }
 
-// selecionar agendamento com dados
 $stmt = $pdo->prepare("
     SELECT a.*, p.nome AS paciente, m.nome AS medico 
     FROM agendamento a

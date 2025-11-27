@@ -8,7 +8,6 @@ if (!$id) {
     exit;
 }
 
-// carregar agendamento atual
 $stmt = $pdo->prepare("SELECT * FROM agendamento WHERE id = ?");
 $stmt->execute([$id]);
 $ag = $stmt->fetch(PDO::FETCH_ASSOC);
@@ -22,18 +21,15 @@ $errors = [];
 $pacientes = $pdo->query("SELECT id, nome FROM paciente ORDER BY nome")->fetchAll(PDO::FETCH_ASSOC);
 $medicos = $pdo->query("SELECT id, nome FROM medico ORDER BY nome")->fetchAll(PDO::FETCH_ASSOC);
 
-// hora constantes
 $hours = [];
 for ($h = 8; $h <= 17; $h++)
     $hours[] = str_pad($h, 2, '0', STR_PAD_LEFT) . ':00';
 
-// selected values (initial)
 $selected_paciente = $_POST['paciente'] ?? $ag['paciente_id'];
 $selected_medico = $_POST['medico'] ?? $ag['medico_id'];
 $selected_date = $_POST['data'] ?? date('Y-m-d', strtotime($ag['data_hora']));
 $selected_time = $_POST['hora'] ?? date('H:i', strtotime($ag['data_hora']));
 
-// function reused
 function get_booked_hours_excluding_self($pdo, $medico_id, $date, $exclude_agendamento_id)
 {
     $sql = "SELECT TIME(data_hora) as hora FROM agendamento WHERE medico_id = ? AND DATE(data_hora) = ? AND id <> ?";
@@ -46,7 +42,6 @@ function get_booked_hours_excluding_self($pdo, $medico_id, $date, $exclude_agend
     return $res;
 }
 
-// se salvar
 if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['action']) && $_POST['action'] === 'save') {
     $paciente = intval($_POST['paciente'] ?? 0);
     $medico = intval($_POST['medico'] ?? 0);
@@ -74,7 +69,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['action']) && $_POST['
     if (empty($errors) && !in_array($hora, $hours))
         $errors[] = "Horário inválido.";
 
-    // verificar disponibilidade excluindo o próprio agendamento atual
     if (empty($errors)) {
         $datetime_str = $data . ' ' . $hora . ':00';
         $sql = "SELECT COUNT(*) FROM agendamento WHERE medico_id = ? AND data_hora = ? AND id <> ?";
@@ -97,7 +91,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['action']) && $_POST['
     }
 }
 
-// se pediram para mostrar horários, calcular disponíveis (excluindo próprio agendamento)
 $available_hours = [];
 if (!empty($selected_medico) && !empty($selected_date)) {
     $booked = get_booked_hours_excluding_self($pdo, $selected_medico, $selected_date, $id);
