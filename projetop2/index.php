@@ -11,7 +11,6 @@
 <body>
     <div class="container mt-5">
         <?php
-        // Exibe mensagens de sucesso/erro do cadastro
         if (isset($_GET['cadastro'])) {
             $cadastro = $_GET['cadastro'];
             if ($cadastro) {
@@ -21,7 +20,6 @@
             }
         }
 
-        // Lógica de login
         if ($_SERVER['REQUEST_METHOD'] == "POST") {
             require('conexao.php');
             $email = $_POST['email'];

@@ -12,7 +12,6 @@ for ($h = 8; $h <= 17; $h++)
 
 $available_hours = [];
 if (!empty($selected_medico) && !empty($selected_date)) {
-  // pegar horas ocupadas
   $stmt = $pdo->prepare("SELECT TIME(data_hora) as hora FROM agendamento WHERE medico_id = ? AND DATE(data_hora) = ?");
   $stmt->execute([$selected_medico, $selected_date]);
   $booked = $stmt->fetchAll(PDO::FETCH_COLUMN, 0);
@@ -48,7 +47,6 @@ if (!empty($selected_medico) && !empty($selected_date)) {
   <div class="col-md-3 align-self-end">
     <button class="btn btn-primary" type="submit">Buscar</button>
     <a href="agendamentos.php" class="btn btn-outline-secondary">Agendar horário</a>
-    <!-- botão que redireciona para novo agendamento -->
   </div>
 </form>
 
