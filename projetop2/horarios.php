@@ -53,9 +53,20 @@ if (!empty($selected_medico) && !empty($selected_date)) {
 </form>
 
 <?php if ($selected_medico && $selected_date): ?>
-  <h5>Horários disponíveis para
-    <?= htmlspecialchars(current(array_filter($medicos, fn($m) => $m['id'] == $selected_medico)))['nome'] ?? '' ?> em
-    <?= date('d/m/Y', strtotime($selected_date)) ?></h5>
+
+  <?php
+  $medicoNome = '';
+  foreach ($medicos as $m) {
+    if ($m['id'] == $selected_medico) {
+      $medicoNome = $m['nome'];
+      break;
+    }
+  }
+  ?>
+
+  <h5>Horários disponíveis para <?= htmlspecialchars($medicoNome) ?> em <?= date('d/m/Y', strtotime($selected_date)) ?>
+</h5>
+
 
   <?php if (!empty($available_hours)): ?>
     <ul>
