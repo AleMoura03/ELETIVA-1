@@ -35,12 +35,14 @@ if (isset($_GET['excluir']) && $_GET['excluir']) {
 <table class="table table-hover table-striped">
   <thead>
     <tr>
-      <th>ID</th>
-      <th>Nome</th>
-      <th>Telefone</th>
-      <th class="no-print">Ações</th>
+        <th>ID</th>
+        <th>Nome</th>
+        <th>Telefone</th>
+        <th>Data Nasc.</th>
+        <th class="no-print">Ações</th>
     </tr>
-  </thead>
+</thead>
+
   <tbody>
     <?php foreach ($pacientes as $p): ?>
       <tr>
